@@ -1,0 +1,62 @@
+/* Defines the font styles for the application */
+
+:root {
+  /* Fonts */
+  --font-serif: var(--font-fraunces, serif);
+  --font-sans: var(--font-ibm-plex-sans, sans-serif);
+  --font-mono: var(--font-jetbrains-mono, monospace);
+  --font-cursive: var(--font-allura, cursive);
+
+  /* Font sizes (fluid) */
+  --font-xs: clamp(0.6944rem, 0.6593rem + 0.1759vw, 0.8rem);
+  --font-sm: clamp(0.8333rem, 0.7778rem + 0.2778vw, 1rem);
+  --font-md: clamp(1rem, 0.9167rem + 0.4167vw, 1.25rem);
+  --font-lg: clamp(1.2rem, 1.0792rem + 0.6042vw, 1.5625rem);
+  --font-xl: clamp(1.44rem, 1.269rem + 0.8552vw, 1.9531rem);
+  --font-2xl: clamp(1.728rem, 1.4902rem + 1.189vw, 2.4414rem);
+  --font-3xl: clamp(2.0736rem, 1.7475rem + 1.6303vw, 3.0518rem);
+  --font-4xl: clamp(2.4883rem, 2.0462rem + 2.2106vw, 3.8147rem);
+
+  /* Line heights */
+  --line-height-xs: 1.2;
+  --line-height-sm: 1.4;
+  --line-height-md: 1.6;
+  --line-height-lg: 1.8;
+  --line-height-xl: 2;
+
+  /* Spacing */
+  --tracking-xs: -0.05rem;
+  --tracking-sm: -0.025rem;
+  --tracking-md: 0rem;
+  --tracking-lg: 0.025rem;
+  --tracking-xl: 0.05rem;
+  --tracking-2xl: 0.1rem;
+}
+
+@theme {
+  --font-serif: var(--font-serif);
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+
+  --text-xs: var(--font-xs);
+  --text-sm: var(--font-sm);
+  --text-md: var(--font-md);
+  --text-lg: var(--font-lg);
+  --text-xl: var(--font-xl);
+  --text-2xl: var(--font-2xl);
+  --text-3xl: var(--font-3xl);
+  --text-4xl: var(--font-4xl);
+
+  --leading-tight: var(--line-height-xs);
+  --leading-snug: var(--line-height-sm);
+  --leading-normal: var(--line-height-md);
+  --leading-relaxed: var(--line-height-lg);
+  --leading-loose: var(--line-height-xl);
+
+  --tracking-tighter: var(--tracking-xs);
+  --tracking-tight: var(--tracking-sm);
+  --tracking-normal: var(--tracking-md);
+  --tracking-wide: var(--tracking-lg);
+  --tracking-wider: var(--tracking-xl);
+  --tracking-widest: var(--tracking-2xl);
+}

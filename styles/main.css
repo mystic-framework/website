@@ -1,0 +1,6 @@
+/* Main CSS Entry File. */
+
+@import 'tailwindcss';
+
+@import './colors.css';
+@import './fonts.css';

@@ -1,0 +1,51 @@
+/* Defines colors for the application */
+
+:root {
+  --color-background: #faf8fc;
+  --color-background-alt: #f3eef9;
+  --color-background-code: #f0eaf7;
+  --color-surface: #ffffff;
+  --color-surface-alt: #ede6f6;
+  --color-border: #ddd2ec;
+  --color-text: #1a1523;
+  --color-text-dim: #4f4560;
+  --color-text-faint: #7d7290;
+  --color-accent: #4527a0;
+  --color-accent-dim: #3d2589;
+  --color-accent-alt: #a67c00;
+  --color-accent-alt-dim: #8a6700;
+}
+
+:root[data-theme='dark'] {
+  --color-background: #151220;
+  --color-background-alt: #1b1729;
+  --color-background-code: #1c1830;
+  --color-surface: #201c30;
+  --color-surface-alt: #2b2440;
+  --color-border: #382f4d;
+  --color-text: #eae5f5;
+  --color-text-dim: #b4a9c9;
+  --color-text-faint: #877ba0;
+  --color-accent: #b39ddb;
+  --color-accent-dim: #9575cd;
+  --color-accent-alt: #e0b84a;
+  --color-accent-alt-dim: #c9a133;
+}
+
+@theme {
+  --color-background: var(--color-background);
+  --color-background-alt: var(--color-background-alt);
+  --color-background-code: var(--color-background-code);
+  --color-surface: var(--color-surface);
+  --color-surface-alt: var(--color-surface-alt);
+  --color-border: var(--color-border);
+  --color-text: var(--color-text);
+  --color-text-dim: var(--color-text-dim);
+  --color-text-faint: var(--color-text-faint);
+  --color-accent: var(--color-accent);
+  --color-accent-dim: var(--color-accent-dim);
+  --color-accent-alt: var(--color-accent-alt);
+  --color-accent-alt-dim: var(--color-accent-alt-dim);
+}
+
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
