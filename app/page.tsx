@@ -1,69 +1,186 @@
-import Image from 'next/image';
+'use client';
 
-export default function Home() {
+import { useState } from 'react';
+
+const TYPE_SCALE = [
+  { label: 'xs', className: 'text-xs' },
+  { label: 'sm', className: 'text-sm' },
+  { label: 'md', className: 'text-md' },
+  { label: 'lg', className: 'text-lg' },
+  { label: 'xl', className: 'text-xl' },
+  { label: '2xl', className: 'text-2xl' },
+  { label: '3xl', className: 'text-3xl' },
+  { label: '4xl', className: 'text-4xl' },
+] as const;
+const TYPE_FAMILIES = [
+  { label: 'Serif — Fraunces', className: 'font-serif' },
+  { label: 'Sans — IBM Plex Sans', className: 'font-sans' },
+  { label: 'Mono — JetBrains Mono', className: 'font-mono' },
+] as const;
+
+type Swatch = {
+  name: string;
+  bg: string;
+  on: string;
+};
+
+type SwatchGroup = {
+  title: string;
+  swatches: Swatch[];
+};
+
+const SWATCH_GROUPS: SwatchGroup[] = [
+  {
+    title: 'Primary',
+    swatches: [
+      { name: 'primary', bg: 'bg-primary', on: 'text-on-primary' },
+      { name: 'primary-container', bg: 'bg-primary-container', on: 'text-on-primary-container' },
+    ],
+  },
+  {
+    title: 'Secondary',
+    swatches: [
+      { name: 'secondary', bg: 'bg-secondary', on: 'text-on-secondary' },
+      {
+        name: 'secondary-container',
+        bg: 'bg-secondary-container',
+        on: 'text-on-secondary-container',
+      },
+    ],
+  },
+  {
+    title: 'Tertiary',
+    swatches: [
+      { name: 'tertiary', bg: 'bg-tertiary', on: 'text-on-tertiary' },
+      { name: 'tertiary-container', bg: 'bg-tertiary-container', on: 'text-on-tertiary-container' },
+    ],
+  },
+  {
+    title: 'Error',
+    swatches: [
+      { name: 'error', bg: 'bg-error', on: 'text-on-error' },
+      { name: 'error-container', bg: 'bg-error-container', on: 'text-on-error-container' },
+    ],
+  },
+  {
+    title: 'Neutral surface',
+    swatches: [
+      { name: 'surface', bg: 'bg-surface', on: 'text-on-surface' },
+      { name: 'surface-variant', bg: 'bg-surface-variant', on: 'text-on-surface-variant' },
+      { name: 'inverse-surface', bg: 'bg-inverse-surface', on: 'text-inverse-on-surface' },
+      { name: 'inverse-primary', bg: 'bg-inverse-primary', on: 'text-on-primary-container' },
+    ],
+  },
+  {
+    title: 'Fixed (theme-stable)',
+    swatches: [
+      { name: 'primary-fixed', bg: 'bg-primary-fixed', on: 'text-on-primary-fixed' },
+      { name: 'secondary-fixed', bg: 'bg-secondary-fixed', on: 'text-on-secondary-fixed' },
+      { name: 'tertiary-fixed', bg: 'bg-tertiary-fixed', on: 'text-on-tertiary-fixed' },
+    ],
+  },
+];
+
+const SURFACE_CONTAINERS = [
+  { label: 'dim', bg: 'bg-surface-dim' },
+  { label: 'lowest', bg: 'bg-surface-container-lowest' },
+  { label: 'low', bg: 'bg-surface-container-low' },
+  { label: 'container', bg: 'bg-surface-container' },
+  { label: 'high', bg: 'bg-surface-container-high' },
+  { label: 'highest', bg: 'bg-surface-container-highest' },
+  { label: 'bright', bg: 'bg-surface-bright' },
+];
+
+export default function TokenDemoPage() {
+  const [dark, setDark] = useState(false);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert h-5 w-[100px]"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the{' '}
-            <code className="rounded bg-black/[.06] px-1.5 py-0.5 font-mono text-[0.9em] dark:bg-white/[.08]">
-              page.tsx
-            </code>{' '}
-            file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{' '}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{' '}
-            or the{' '}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{' '}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div
+      className={`min-h-screen bg-background text-on-background transition-colors duration-300 ${dark ? 'dark' : 'light'}`}
+    >
+      <div className="mx-auto max-w-4xl px-6 py-16">
+        {/* Header */}
+        <header className="mb-16 flex items-center justify-between border-b border-outline-variant pb-8">
+          <span className="text-3xl text-primary font-cursive">mystic framework</span>
+          <button
+            type="button"
+            onClick={() => setDark((v) => !v)}
+            className="rounded-full border border-outline px-4 py-2 text-sm font-medium text-on-surface transition-colors hover:bg-surface-container"
           >
-            <Image
-              className="dark:invert h-[14px] w-4"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={14}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+            {dark ? 'Light mode' : 'Dark mode'}
+          </button>
+        </header>
+
+        {/* Typography */}
+        <section className="mb-16">
+          <h2 className="mb-6 text-xl font-semibold tracking-wide text-on-surface">
+            Typography scale
+          </h2>
+          <div className="space-y-8">
+            {TYPE_FAMILIES.map((family) => (
+              <div key={family.label}>
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-on-surface-variant">
+                  {family.label}
+                </p>
+                <div className="space-y-2">
+                  {TYPE_SCALE.map((size) => (
+                    <div
+                      key={size.label}
+                      className={`${family.className} ${size.className} leading-normal text-on-background`}
+                    >
+                      Design system tokens{' '}
+                      <span className="font-mono text-xs text-on-surface-variant">
+                        {size.className}
+                      </span>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Color roles */}
+        <section className="mb-16">
+          <h2 className="mb-6 text-xl font-semibold tracking-wide text-on-surface">Color roles</h2>
+          <div className="space-y-8">
+            {SWATCH_GROUPS.map((group) => (
+              <div key={group.title}>
+                <p className="mb-3 font-mono text-xs uppercase tracking-widest text-on-surface-variant">
+                  {group.title}
+                </p>
+                <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
+                  {group.swatches.map((swatch) => (
+                    <div
+                      key={swatch.name}
+                      className={`${swatch.bg} ${swatch.on} flex h-24 flex-col justify-end rounded-lg p-3 text-xs font-medium`}
+                    >
+                      {swatch.name}
+                    </div>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </section>
+
+        {/* Surface elevation */}
+        <section>
+          <h2 className="mb-6 text-xl font-semibold tracking-wide text-on-surface">
+            Surface elevation
+          </h2>
+          <div className="flex overflow-hidden rounded-lg border border-outline-variant">
+            {SURFACE_CONTAINERS.map((step) => (
+              <div
+                key={step.label}
+                className={`${step.bg} flex h-20 flex-1 items-end justify-center pb-2 text-[10px] font-mono text-on-surface-variant`}
+              >
+                {step.label}
+              </div>
+            ))}
+          </div>
+        </section>
+      </div>
     </div>
   );
 }
