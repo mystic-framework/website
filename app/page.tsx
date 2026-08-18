@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 
+import Button from '@/components/Button';
+import Link from '@/components/Link';
+
 const TYPE_SCALE = [
   { label: 'xs', className: 'text-xs' },
   { label: 'sm', className: 'text-sm' },
@@ -102,13 +105,9 @@ export default function TokenDemoPage() {
         {/* Header */}
         <header className="mb-16 flex items-center justify-between border-b border-outline-variant pb-8">
           <span className="text-3xl text-primary font-cursive">mystic framework</span>
-          <button
-            type="button"
-            onClick={() => setDark((v) => !v)}
-            className="rounded-full border border-outline px-4 py-2 text-sm font-medium text-on-surface transition-colors hover:bg-surface-container"
-          >
+          <Button onClick={() => setDark((v) => !v)} variant="ui">
             {dark ? 'Light mode' : 'Dark mode'}
-          </button>
+          </Button>
         </header>
 
         {/* Typography */}
@@ -165,7 +164,7 @@ export default function TokenDemoPage() {
         </section>
 
         {/* Surface elevation */}
-        <section>
+        <section className="mb-16">
           <h2 className="mb-6 text-xl font-semibold tracking-wide text-on-surface">
             Surface elevation
           </h2>
@@ -178,6 +177,36 @@ export default function TokenDemoPage() {
                 {step.label}
               </div>
             ))}
+          </div>
+        </section>
+
+        {/* Paragraph */}
+        <section className="mb-16">
+          <h2 className="mb-6 text-xl font-semibold tracking-wide text-on-surface">Lorem Ipsum</h2>
+          <p className="text-on-surface text-md leading-relaxed">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse
+            lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed, dolor. Cras elementum
+            ultrices diam. Maecenas ligula massa, varius a, semper congue, euismod non, mi. Proin
+            porttitor, orci nec nonummy molestie, enim est eleifend mi, non fermentum diam nisl sit
+            amet erat. Duis semper.{' '}
+            <Link href="https://github.com/mystic-framework">Duis arcu massa</Link>, scelerisque
+            vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat libero
+            pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in pede. Praesent
+            blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales. Vestibulum ante
+            ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aliquam nibh.
+            Mauris ac mauris sed pede pellentesque fermentum. Maecenas adipiscing ante non diam
+            sodales hendrerit.
+          </p>
+        </section>
+
+        {/* Buttons */}
+        <section className="mb-16">
+          <h2 className="mb-6 text-xl font-semibold tracking-wide text-on-surface">Buttons</h2>
+          <div className="flex gap-16">
+            <Button variant="primary">Button</Button>
+            <Button variant="secondary">Button</Button>
+            <Button variant="ghost">Button</Button>
+            <Button variant="ui">Button</Button>
           </div>
         </section>
       </div>
