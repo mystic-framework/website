@@ -1,0 +1,29 @@
+/* Styles for the Link component */
+
+/* Base styles for the link */
+.link {
+  color: inherit;
+  text-decoration: none;
+  cursor: none; /* Disable default cursor */
+  transition:
+    color 0.2s ease,
+    opacity 0.2s ease,
+    text-decoration-thickness 0.2s ease;
+}
+
+/* Hover state for the link */
+.link:hover {
+  color: var(--color-primary);
+}
+
+/* Variant: Underline */
+.link.underline {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 4px;
+}
+
+/* Variant: No Underline */
+.link.no-underline {
+  text-decoration: none;
+}
