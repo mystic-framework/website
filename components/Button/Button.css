@@ -1,0 +1,45 @@
+/* Styles for Button component. */
+
+/* Button base style. */
+.button {
+  min-width: 64px;
+  min-height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 4px 12px;
+  border-radius: 9999px;
+  font-size: var(--font-sm);
+  font-weight: 500;
+  outline: none; /* Cursor snaps to it */
+  cursor: none;
+  transition:
+    outline 0.2s ease,
+    outline-offset 0.2s ease;
+}
+
+.button:focus-visible {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+.button.primary {
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+}
+
+.button.secondary {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+}
+
+.button.ghost {
+  background-color: transparent;
+  color: var(--color-primary);
+}
+
+.button.ui {
+  background-color: transparent;
+  color: var(--color-on-surface);
+}
