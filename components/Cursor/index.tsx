@@ -46,6 +46,11 @@ export default function Cursor() {
     };
 
     const handleMouseMove = (event: MouseEvent) => {
+      // Hide cursor on initial load until the first mouse move event
+      if (dotRef.current?.classList.contains('initial')) {
+        dotRef.current.classList.remove('initial');
+      }
+
       mouse.current = { x: event.clientX, y: event.clientY };
 
       if (!dotRef.current?.classList.contains('snapped')) {
@@ -234,5 +239,5 @@ export default function Cursor() {
     };
   }, []);
 
-  return <div ref={dotRef} className="cursor-dot" />;
+  return <div ref={dotRef} className="cursor-dot initial" />;
 }
