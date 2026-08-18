@@ -26,7 +26,12 @@ body {
     border-radius 0.25s cubic-bezier(0.25, 1, 0.5, 1),
     background-color 0.25s,
     border-color 0.25s,
-    opacity 0.2s ease;
+    opacity 0.1s ease;
+}
+
+/* Hide until the cursor is initialized */
+.cursor-dot.initial {
+  opacity: 0;
 }
 
 /* The style applied when hovering over an interactive element */
